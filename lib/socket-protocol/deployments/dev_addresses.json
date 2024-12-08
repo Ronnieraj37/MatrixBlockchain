@@ -1,0 +1,45 @@
+{
+  "84532": {
+    "SignatureVerifier": "0x5e1641B190B71ECCc85b1ECe934F31cD9b3dcF7a",
+    "Hasher": "0xaC61f5696e0E2636dA7bD69827380f2Ab41A3C38",
+    "Socket": "0xbDE0D2da12F703Ccd275d721214745BccDCAD124",
+    "SocketBatcher": "0x5F77550E3072c913A20B2fbdAb14026fe0E8B450",
+    "FastSwitchboard": "0xee1Aef0b06f63Aa1c881838794Dd0876462c2B0d",
+    "PayloadDeliveryPlug": "0x9EDfb162b725CF6d628D68af200cAe8b624111eD",
+    "startBlock": 18822440
+  },
+  "421614": {
+    "SignatureVerifier": "0x5e1641B190B71ECCc85b1ECe934F31cD9b3dcF7a",
+    "Hasher": "0xaC61f5696e0E2636dA7bD69827380f2Ab41A3C38",
+    "Socket": "0x302E258fe375A1da4d6B3F4Dd5208638A29bc409",
+    "SocketBatcher": "0xeAb2e310A53FD3Fb34C2944690a79DFB2e834F20",
+    "PayloadDeliveryPlug": "0x804Af74b5b3865872bEf354e286124253782FA95",
+    "startBlock": 103767524,
+    "FastSwitchboard": "0xecC397A9AF71B4687D63b10DB8EF2931C90C7a08"
+  },
+  "7625382": {
+    "WatcherPrecompile": "0x47116C0E101C4c1b5f21f0A57A86c0aa3F14D994",
+    "AddressResolver": "0x208dC31cd6042a09bbFDdB31614A337a51b870ba",
+    "SignatureVerifier": "0xbBfb525ADc6eC38Ef0D4b807d327c2Dd1C286de1",
+    "AuctionHouse": "0x3cf47Ad0F040dFF1208E649C8f8e23e6B5A08916",
+    "startBlock": 59
+  },
+  "11155111": {
+    "SignatureVerifier": "0x5e1641B190B71ECCc85b1ECe934F31cD9b3dcF7a",
+    "Hasher": "0xaC61f5696e0E2636dA7bD69827380f2Ab41A3C38",
+    "Socket": "0xbDE0D2da12F703Ccd275d721214745BccDCAD124",
+    "SocketBatcher": "0x5F77550E3072c913A20B2fbdAb14026fe0E8B450",
+    "FastSwitchboard": "0xee1Aef0b06f63Aa1c881838794Dd0876462c2B0d",
+    "PayloadDeliveryPlug": "0x9EDfb162b725CF6d628D68af200cAe8b624111eD",
+    "startBlock": 7217257
+  },
+  "11155420": {
+    "SignatureVerifier": "0x5e1641B190B71ECCc85b1ECe934F31cD9b3dcF7a",
+    "Hasher": "0xaC61f5696e0E2636dA7bD69827380f2Ab41A3C38",
+    "Socket": "0xbDE0D2da12F703Ccd275d721214745BccDCAD124",
+    "SocketBatcher": "0x5F77550E3072c913A20B2fbdAb14026fe0E8B450",
+    "FastSwitchboard": "0xee1Aef0b06f63Aa1c881838794Dd0876462c2B0d",
+    "PayloadDeliveryPlug": "0x9EDfb162b725CF6d628D68af200cAe8b624111eD",
+    "startBlock": 20805255
+  }
+}

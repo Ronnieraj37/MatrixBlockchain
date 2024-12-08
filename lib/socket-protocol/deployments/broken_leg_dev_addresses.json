@@ -1,0 +1,36 @@
+{
+  "3605": {
+    "SignatureVerifier": "0xE33cEEd8488c99f79023C67f511B2b25953A8f45",
+    "WatcherPrecompile": "0xe1b0BB029E16aaC17dEFC8599C3b3CA547D29f32",
+    "AddressResolver": "0xc1d4f0ed9760FF06C17af897a2703AE060509631",
+    "AuctionHouse": "0xa58db42A279BB4D9DBEEB0732E16c8e958E0857d",
+    "startBlock": 4811708
+  },
+  "84532": {
+    "SignatureVerifier": "0x3dFAAf0152B03b4A5fe1ab1a5eaC69668500Bd56",
+    "Hasher": "0xfFDe36e23b6b77c84053724cBd0B1F5E82Ad0e1e",
+    "Socket": "0xcB246b3719FA7F37AB2696eCdCbb7A9B5Dd816da",
+    "SocketBatcher": "0x1363aa6d41719736AbF5F12EE850A01659B3Ea08",
+    "FastSwitchboard": "0xA4Fcd3037Eb3071309fB21369dAa4Bbc38255147",
+    "PayloadDeliveryPlug": "0xA3982758d1D533C9b767d585e159029FAcc6298b",
+    "startBlock": 18811479
+  },
+  "421614": {
+    "SignatureVerifier": "0x8DbE5E9b4A814f691bF1Cd0fDF9A7C8303eacCcD",
+    "Hasher": "0x2b6C7104AFF129C6b00bab08AB555F7c964532FA",
+    "Socket": "0x123415Fb068285823B0A113b62706beE48bcE811",
+    "SocketBatcher": "0xf955253ee72Ac132Dab647154DA2087941862A2A",
+    "FastSwitchboard": "0xbE5ed62188e986F380AF02C8dCe7a2FAB3504AB7",
+    "startBlock": 103704037,
+    "PayloadDeliveryPlug": "0x06C51869C4503eaA8BdfdAB6782CbfCF1369E45a"
+  },
+  "11155420": {
+    "SignatureVerifier": "0x9730A5b33DDFc7172BA312f6AcC72503019787b8",
+    "Hasher": "0xFFf73a05751CFB3496CD6Cb30306f61B1128e733",
+    "Socket": "0x1463b319BC177e4000e620023AD62c006A656420",
+    "SocketBatcher": "0xF86e29f8b0A5DDEe9f9DDB2583E8767fC2a200F1",
+    "FastSwitchboard": "0xCB009d7cEe50F0fCD76479cea8a4c6b011f0E59C",
+    "startBlock": 20794038,
+    "PayloadDeliveryPlug": "0x79bf0cC0991f09ebC01603Ed12019Bebd2F9cEF1"
+  }
+}

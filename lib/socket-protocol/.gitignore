@@ -1,0 +1,27 @@
+dist/
+cache/
+out/
+node_modules/
+scratchpad/
+#Hardhat files
+cache_hardhat/
+artifacts/
+src/types
+
+.vscode/
+#Hardhat plugin files
+typechain-types/
+
+.env*
+.DS_Store
+
+.gas-snapshot/
+
+# coverage
+lcov.info
+.cursorignore
+
+broadcast/
+.gas-snapshot
+
+.cursorrules
