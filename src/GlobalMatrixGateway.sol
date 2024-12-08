@@ -20,8 +20,17 @@ contract GlobalMatrixGateway is AppGatewayBase {
         uint256 timestamp;
     }
 
+    struct Chain {
+        string name;
+        uint fee;
+    }
+
+    Chain[] public chains;
+
     uint256 public personCount = 1;
     uint256 public mapCount = 1;
+    uint256 public currentChainIndex = 0;
+
     mapping(address => uint256) public playerToMap;
     mapping(address => string) public playerImage;
     mapping(uint256 => address[]) public mapToPlayers;
@@ -76,6 +85,30 @@ contract GlobalMatrixGateway is AppGatewayBase {
         );
     }
 
+    // Calculate the diversion percentages and get the target chain
+    function getTargetChain() public view returns (string memory) {
+        require(chains.length > 0, "No chains available");
+
+        uint256 totalFee = 0;
+        for (uint256 i = 0; i < chains.length; i++) {
+            totalFee += chains[i].fee;
+        }
+
+        uint256 maxPercentage = 0;
+        uint256 targetIndex = 0;
+
+        for (uint256 i = 0; i < chains.length; i++) {
+            uint256 currentPercentage = ((totalFee - chains[i].fee) * 100) /
+                totalFee;
+            if (currentPercentage > maxPercentage) {
+                maxPercentage = currentPercentage;
+                targetIndex = i;
+            }
+        }
+
+        return chains[targetIndex].name;
+    }
+
     function createObject(
         string calldata _name,
         uint256 _chainId
@@ -95,6 +128,34 @@ contract GlobalMatrixGateway is AppGatewayBase {
             randomX,
             _chainId
         );
+    }
+
+    // The function to create an object and distribute across chains
+    function createObjectAtScale(string calldata _name) public async {
+        // Generate a random address
+        address randomX = address(
+            uint160(
+                uint256(
+                    keccak256(abi.encodePacked(block.timestamp, block.number))
+                )
+            )
+        );
+
+        // Set the playerChainId for the generated random address
+        playerChainId[randomX] = currentChainIndex;
+
+        // Increment personCount
+        personCount++;
+
+        // Call the ChainMatrix contract to register the object on the selected chain
+        ChainMatrix(chainContracts[currentChainIndex]).registerObject(
+            _name,
+            randomX,
+            currentChainIndex
+        );
+
+        // Update currentChainIndex to cycle through 0, 1, 2
+        currentChainIndex = (currentChainIndex + 1) % 3; // This ensures it stays within the 0-2 range
     }
 
     function addPlayerInMap(address player, uint256 mapId) public {
@@ -169,6 +230,37 @@ contract GlobalMatrixGateway is AppGatewayBase {
             receiver,
             content
         );
+    }
+
+    // Function to send a message between two players, distributing messages across chains
+    function sendMessageScale(
+        address sender,
+        address receiver,
+        string memory content
+    ) external async {
+        // Get the sender's and receiver's location
+        (uint256 senderX, uint256 senderY) = getPlayerLocation(sender);
+        (uint256 receiverX, uint256 receiverY) = getPlayerLocation(receiver);
+
+        // Ensure players are within the 2x2 range on their respective maps (100x100 matrix)
+        require(
+            (senderX >= receiverX - 2 && senderX <= receiverX + 2) &&
+                (senderY >= receiverY - 2 && senderY <= receiverY + 2),
+            "Players are too far apart"
+        );
+
+        // Emit the message sent event
+        emit MessageSent(sender, receiver, content);
+
+        // Store the message on the ChainMatrix contracts based on the current chain index
+        ChainMatrix(chainContracts[currentChainIndex]).addMsg(
+            sender,
+            receiver,
+            content
+        );
+
+        // Update the currentMessageChainIndex to cycle through 0, 1, 2
+        currentChainIndex = (currentChainIndex + 1) % 3; // This ensures it stays within the 0-2 range
     }
 
     // Helper function to get a player's location on the given chain
